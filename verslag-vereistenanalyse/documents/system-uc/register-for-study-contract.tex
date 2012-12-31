@@ -1,0 +1,80 @@
+\section{Register for study contract}
+
+\begin{description}
+	\item[Name] \
+		\par Register for study contract
+	\item[Short description] \ 
+			\par The student wants to register for a study contract, hence he has to
+			specify the necessary information.
+	\item[Trigger] \ 
+			\par The student wants to register for a diploma contract and decides to take
+			the necessary steps.
+	\item[Primary actor(s)] \ 
+		\begin{itemize}
+		  \item The student
+		\end{itemize}
+	\item[Secondary actor(s)] \ 
+		\par None
+	\item[Preconditions] \ 
+	\begin{itemize}
+		\item The student is logged in at the online study board.
+	\end{itemize}
+	\item[Normal flow] \ 
+	\begin{enumerate}
+	  	% 1
+	  	\item The student navigates to the registration page.
+	  	% 2
+	  	\item The system displays the registration page.
+	  	% 3
+	  	\item The student indicates that he wants to register for a diploma
+	  	contract.
+	  	% 4
+	  	\item The student selects the right program. This includes the actual
+	  	program as well as the phase.
+	  	% 5
+	  	\item The student verifies that he selected the correct program and submits.
+	  	% 6
+	  	\item The system verifies that the student can indeed follow the specified
+	  	study program.
+	  	% 7
+	  	\item The student is now registered for the program.
+	\end{enumerate}
+	\item[Alternative flow] \
+	\begin{description}
+		\item[3a] The student indicates that he wants to register for an exam
+		contract, resume at step 5 in the normal flow.
+		\item[3b] The student indicates that he wants to register for a credit
+		contract, resume at step 5 in the normal flow.
+	\end{description}
+	\item[Postcondition(s)] \ 
+	\begin{itemize}
+		\item The student is now registered for the specified study program. The
+		Wellington university is aware that a new student is subscribed to one of
+		their study programs.
+	\end{itemize}
+	\item[Exception(s)] \ 
+	\begin{description}
+		\item[6a] if the student's submitted program is a credit or exam contract and
+		the student has already registered for another contract of that same type
+		within the same faculty, then
+		\begin{enumerate}
+		  \item The system rejects the registration
+		  \item The system presents the option to register for another study program
+		  (and hence return to step 3 in the normal flow) or end the registration.
+		\end{enumerate}
+		\item[6b] if the student's submitted program is about a phase X where the
+		student did not yet complete phase X-1, then
+		\begin{enumerate}
+		 	\item The system rejects the registration
+		 	\item The system presents the option to register for another study program
+		 	(and hence return to step 3 in the normal flow) or end the registration.
+		\end{enumerate}
+		\item[6c] if the student's submitted program is about a master where the
+		student did not yet complete the preceding bachelor, then.
+		\begin{enumerate}
+		 	\item The system rejects the registration
+		 	\item The system presents the option to register for another study program
+		 	(and hence return to step 3 in the normal flow) or end the registration.
+		\end{enumerate}
+	\end{description}
+\end{description}

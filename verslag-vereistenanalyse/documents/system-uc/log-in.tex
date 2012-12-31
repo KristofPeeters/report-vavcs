@@ -1,0 +1,60 @@
+\section{Log in}
+
+\begin{description}
+	\item[Name] \
+		\par Log in
+	\item[Short description] \ 
+			\par The user wants to access to the online study board. He therefore uses
+			his credentials (e.g. student number and corresponding password in case
+			the user is a student). 
+	\item[Trigger] \ 
+			\par The user decides he wants to access the online study board.
+	\item[Primary actor(s)] \ 
+		\begin{itemize}
+		  \item User
+		\end{itemize}
+	\item[Secondary actor(s)] \ 
+		\par None
+	\item[Preconditions] \ 
+	\begin{itemize}
+		\item The user is either a registered user at the Wellington university and
+		hence possesses a valid student number and password or he is an administration
+		associate.
+	\end{itemize}
+	\item[Normal flow] \ 
+	\begin{enumerate}
+	  	% 1
+	  	\item The user can signal at any time that he wants to access to the online
+	  	study board.
+	  	% 2
+	  	\item The user provides his user credentials (e.g. student number and
+	  	password).
+	  	% 3
+	  	\item The system validates the user credentials.
+	  	% 4
+	  	\item The system gives the user access to the functionality of the online
+	  	study board system that corresponds with his role.
+
+	\end{enumerate}
+	\item[Alternative flow] \
+		\par None
+	\item[Postcondition(s)] \ 
+		\par The user is logged in and has access to the functionality that
+		corresponds with his role.
+	\item[Exception(s)] \
+	\begin{description}
+		\item[3a] If the user id is unknown, then
+		\begin{enumerate}
+		  \item The system informs the user about the error.
+		  \item The system invites the user to try again.
+		  \item The UC flow continues at step 2.
+		\end{enumerate}
+		\item[3b] If the password is incorrect, then
+		\begin{enumerate}
+		  \item The system informs the user about the error.
+		  \item The system invites the user to try again.
+		  \item The UC flow continues at step 2.
+		\end{enumerate}
+	\end{description}
+\end{description}
+

@@ -1,0 +1,58 @@
+\section{Choose exam slots}
+
+\begin{description}
+	\item[Name] \
+		\par Choose exam slot
+	\item[Short description] \ 
+			\par The student wants to register for an exam slot of a course he intends to
+			follow.
+	\item[Trigger] \ 
+			\par The student wants to register for an exam slot or he is invoked to do so
+			to complete his courses selection.
+	\item[Primary actor(s)] \ 
+		\begin{itemize}
+		  \item Student: wants to book an exam slot for a course.
+		\end{itemize}
+	\item[Secondary actor(s)] \ 
+		\begin{itemize}
+		  \item Lector(s): wants to know when which students are doing an exam for
+		  a course he is teaching.
+		\end{itemize}
+	\item[Preconditions] \ 
+	\begin{itemize}
+		\item The student has chosen the courses he wants to select an exam
+		slot for.
+	\end{itemize}
+	\item[Normal flow] \ 
+	\begin{enumerate}
+	  	% 1
+	  	\item The student navigates to the exam slot selection page.
+	  	% 2
+	  	\item The system displays the exam slot selection page.
+	  	% 3
+	  	\item The student overviews the different possibilities and selects the most
+	  	appropriate one.
+	  	% 4
+	  	\item The system registers the student's choice and blocks that slot for
+	  	reservations of other students.
+	  	% 5
+	  	\item The system notifies the lectors teaching the course where the exam
+	  	slot belongs that there is a new booking.
+	\end{enumerate}
+	\item[Alternative flow] \
+		\begin{description}
+			\item[4a] The student had already selected an exam slot for that course (and
+			he wants to select another one because it suits him better for some reason).
+			\begin{enumerate} 
+			  \item The system allows new bookings for the previously reserved slot.
+			  \item The system registers the student's choice and blocks
+			  that slot for other reservations.
+			\end{enumerate}
+		\end{description}
+	\item[Postcondition(s)] \ 
+		\par The exam slot is booked for the student (no other students can book this
+		slot anymore). The student now has that exam slot as exam moment for the
+		corresponding course. Any previously booked slot is now reopened.
+	\item[Exception(s)] \ 
+		\par None
+\end{description}

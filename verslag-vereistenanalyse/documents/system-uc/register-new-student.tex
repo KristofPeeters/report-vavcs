@@ -1,0 +1,83 @@
+\section{Register New Student}
+
+\begin{description}
+	\item[Name] \
+		\par Register New Student
+	\item[Short description] \ 
+			\par A student wants to register himself to be a student at Wellington
+			University. To obtain such a inscription he goes to the student
+			administration building during the inscription days.
+	\item[Trigger] \ 
+			\par The student goes to the student administration building of Wellington
+			University to inscribe himself as a Wellington student.
+	\item[Primary actor(s)] \ 
+		\begin{itemize}
+		  \item Student: wants to be a registered Wellington student.
+		  \item Registration committee: checks the student information and enters it
+		  into the system.
+		\end{itemize}
+	\item[Secondary actor(s)] \ 
+		\par None
+	\item[Preconditions] \ 
+	\begin{itemize}
+		\item The student has arrived at the desk for new registrations in the student administration building
+		\item The student has brought the required documents and information:
+		diploma's, evidence for passing matriculations, register number, passport
+		picture, personal information (telephone number, address, cellphone number,
+		\ldots).
+		\item The student is not yet registered at Wellington University.
+		\item The registration committee is logged in.
+	\end{itemize}
+	\item[Normal flow] \ 
+	\begin{enumerate}
+	  	% 1
+	  	\item The student hands over the required documents to the people of the
+	  	registration committee behind the desk.
+	  	% 2
+	  	\item The registration committee checks if the handed over information is
+	  	complete.
+	  	% 3
+	  	\item The registration committee navigates to the corresponding registration
+	  	page.
+	  	% 4
+	  	\item The system displays the registration page.
+	  	% 5
+	  	\item The registration committee enters all the required information into
+	  	the system.
+	  	% 6
+	  	\item The registration committee submits that information to the system
+	  	making the student a registered student of Wellington Univerisity.
+	  	% 7
+	  	\item The system returns the unique student number.
+	  	% 8
+	  	\item The system demands the student to hand in a password. 
+	  	% 9
+	  	\item The student hands in a password.
+	  	% 10
+	  	\item The registration committee uses the unique student number to make a
+	  	student card for the student.
+	  	% 11
+	  	\item The registration committee hands over the student card to the student,
+	  	together with some folders of the university, the city of Wellington and a
+	  	free buss card.
+	  	% 12
+	  	\item The student accepts all these documents.
+	  	% 13
+	  	\item The student leaves the student administration building.
+	\end{enumerate}
+	\item[Alternative flow] \
+		\par None
+	\item[Postcondition(s)] \ 
+	\begin{itemize}
+		\item The student is a registered student at Wellington University
+	\end{itemize}
+	\item[Exception(s)] \ 
+		\begin{description}
+			\item[9a] The password was less than 6 characters.
+			\begin{enumerate}
+			  \item The system displays an error and invites the student to try again
+			  \item Return to step 8 in the normal flow.
+			\end{enumerate}
+		\end{description}
+			
+\end{description}

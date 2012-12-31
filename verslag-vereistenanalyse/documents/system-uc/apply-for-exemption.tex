@@ -1,0 +1,70 @@
+\section{Apply for exemption}
+
+\begin{description}
+	\item[Name] \
+		\par Apply for exemption
+	\item[Short description] \ 
+			\par The student believes that he can get an exemption for a course of a
+			program he intends to follow. Such an exemption, however, needs approval from
+			a specialized committee of the Wellington university.
+	\item[Trigger] \ 
+			\par The student wants to acquire an exemption for a certain course.
+	\item[Primary actor(s)] \ 
+		\begin{itemize}
+		  \item Student: wants to acquire an exemption for a certain course.
+		\end{itemize}
+	\item[Secondary actor(s)] \ 
+		\begin{itemize}
+		  \item Exemption committee: has to approve the exemption.
+		\end{itemize} 
+	\item[Preconditions] \ 
+	\begin{itemize}
+		\item The student is registered at the university of the Wellington.
+		\item The student wants to follow at least one study program during the upcoming academic year.
+		\item The student has followed at least one course in a previous academic year
+		(which can act as a substitute).
+		\item The student is logged in.
+	\end{itemize}
+	\item[Normal flow] \ 
+	\begin{enumerate}
+	  	% 1
+	  	\item The student navigates to the exemption request page.
+	  	% 2
+	  	\item The system displays the exemption request page.
+	  	% 3
+	  	\item The student fills in the course that he/she wants to acquire the
+	  	exemption for.
+	  	% 4
+	  	\item The student fills in the course that he/she thinks can act as a
+	  	substitute for the course in the previous bullet. He/she also provides the
+	  	institute where that course was taught.
+	  	% 5
+	  	\item The student also fills in the study program to which the exemption
+	  	applies.
+	  	% 6
+	  	\item The student adds a motivation why he/she justifies the exemption (e.g.
+	  	a comparison of the similarity of the contents of both courses).
+	  	% 7
+	  	\item The student submits the request.
+	  	% 8
+	  	\item The system sends it to the exemption committee of the faculty where
+	  	the study program belongs to where it will be approved, \textbf{include}
+	  	\emph{(UC5: Approve exemption)}.
+	\end{enumerate}
+	\item[Alternative flow] \
+		\par None
+	\item[Postcondition(s)] \ 
+	\begin{itemize}
+		\item The exemption is approved, both the system and the student are aware of
+		this exemption.
+	\end{itemize}
+	\item[Exception(s)] \ 
+	\begin{description}
+		\item[1a] If the student already applied for an exemption for the specified
+		course, then
+		\begin{enumerate}
+		  \item The system informs the student that he already applied once.
+		  \item The system displays the home screen.
+		\end{enumerate}
+	\end{description}
+\end{description}

@@ -1,0 +1,57 @@
+\section{Submit course configuration}
+
+\begin{description}
+	\item[Name] \
+		\par Submit course configuration
+	\item[Short description] \ 
+			\par The student decides that his global course configuration (i.e. the total
+			course configuration for each of his study contracts) is final and wants to
+			submit this global configuration as a next step to become fully inscribed for
+			a study program. 
+	\item[Trigger] \ 
+			\par The student wants to make his chosen courses configurations final.
+	\item[Primary actor(s)] \ 
+		\begin{itemize}
+		  \item Student: wants to finalize his chosen courses configurations.
+		\end{itemize}
+	\item[Secondary actor(s)] \ 
+		\begin{itemize}
+		  \item Education committee: receives the submission of chosen courses.
+		\end{itemize} 
+	\item[Preconditions] \ 
+	\begin{itemize}
+		\item The student is logged in.
+		\item The student has chosen an exam slot for each chosen course (that has an
+		exam).
+	\end{itemize}
+	\item[Normal flow] \ 
+	\begin{enumerate}
+	  	% 1
+	  	\item The student navigates to the courses submission page.
+	  	% 2
+	  	\item The system displays the courses submission page.
+	  	% 3
+	  	\item The student selects to submit his saved courses configurations.
+	  	% 4
+	  	\item The system displays a warning that the submission is final.
+	  	% 5
+	  	\item The student selects to continue.
+	  	% 6
+	  	\item The system sends a message containing the course configuration and
+	  	some additional information (name of the student and his studentnumber) to
+	  	the educational committee.
+	  	% 7
+	  	\item The educational committee receives that message.
+	  	% 8
+	  	\item The educational committee checks the configuration and approves it,
+	  	\textbf{include} \emph{(UC8: Approve Courses Submission)}.
+	\end{enumerate}
+	\item[Alternative flow] \
+		\par None
+	\item[Postcondition(s)] \ 
+		\par The courses configurations are submitted and approved.
+	\item[Exception(s)] \ 
+		\par None
+	\item[Remarks] \
+		\par This use case is an extension of UC4: Choose courses.
+\end{description}

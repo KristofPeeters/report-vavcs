@@ -1,0 +1,65 @@
+\section{Approve exemption}
+
+\begin{description}
+	\item[Name] \
+		\par Approve exemption
+	\item[Short description] \ 
+			\par The student submitted an application for an exemption which needs
+			approval. This application will be reviewed and approved by a specialized
+			exemption committee of the Wellington university.
+	\item[Trigger] \ 
+			\par The student submitted an application for an exemption which needs
+			approval.
+	\item[Primary actor(s)] \ 
+		\begin{itemize}
+		  \item Exemption committee: has to check the received exemption. 
+		\end{itemize}
+	\item[Secondary actor(s)] \ 
+		\begin{itemize}
+		  \item Student: wants to know if his exemption is granted.
+		\end{itemize} 
+	\item[Preconditions] \ 
+	\begin{itemize}
+		\item A student applied for an exemption.
+		\item An associate of the exemption committee is logged in as exemption administrator.
+	\end{itemize}
+	\item[Normal flow] \ 
+	\begin{enumerate}
+	  	% 1
+	  	\item The system notifies the exemption committee of a new exemption
+	  	application to be reviewed.
+	  	% 2
+	  	\item The exemption committee reads through the whole application and
+	  	verifies it.
+	  	% 3
+	  	\item The exemption committee decide to accept the application.
+	  	% 4
+	  	\item An associate of the exemption committee will navigate to the exemption
+	  	administrator page.
+	  	% 5
+	  	\item The system displays the exemption administrator page.
+	  	% 6
+	  	\item The exemption committee associate indicates that the exemption is
+	  	approved.
+	  	% 7
+	  	\item The system registers this and notifies the student of this approval.
+	  	% 8
+	  	\item
+	\end{enumerate}
+	\item[Alternative flow] \
+		\par None
+	\item[Postcondition(s)] \ 
+		\par The exemption is granted and the student now does not have to take the
+		exam of the course where the exemption was granted for. 
+	\item[Exception(s)] \ 
+	\begin{description}
+		\item[3a] if the exemption committee decides to reject the application, then
+		\begin{enumerate}
+		  \item An associate of the exemption committee will navigate to the exemption administrator page.
+		  \item The system displays the exemption administrator page.
+		  \item The exemption committee associate indicates that the exemption is
+		  rejected.
+		  \item The system registers and notifies the student of this rejection.
+		\end{enumerate}
+	\end{description}
+\end{description}

@@ -1,0 +1,75 @@
+\section{Approve courses submission}
+%TODO IS GEEN SYSTEM MAAR EEN BUSINESS USE CASE
+\begin{description}
+	\item[Name] \
+		\par Approve courses submission
+	\item[Short description] \ 
+			\par The educational committee has received a submission of a chosen courses
+			configuration and needs to check if it can be approved. If so, it has to
+			approve it and notify the student.
+	\item[Trigger] \ 
+			\par The educational committee has received a submission of a chosen courses
+			configuration which it now has to check (i.e. look if it is a valid submission).
+	\item[Primary actor(s)] \ 
+		\begin{itemize}
+		  \item Educational Committee: checks the received submission.
+		\end{itemize}
+	\item[Secondary actor(s)] \ 
+		\begin{itemize}
+		  \item Student: wants to see the submission of his courses configuration as
+		  approved by the educational committee.
+		\end{itemize} 
+	\item[Preconditions] \ 
+	\begin{itemize}
+		\item The educational committee has received the submission of the student.
+		\item Each employee of the educational committee (that is active in the use
+		case) is logged in as a educational committee employee.
+	\end{itemize}
+	\item[Normal flow] \ 
+	\begin{enumerate}
+	  	% 1
+	  	\item The educational committee navigates to the page where it finds all the
+	  	information of the student (i.e. passed courses, study contracts, personal
+	  	information, \ldots).
+	  	% 2
+	  	\item The educational committee uses this information to perform a series of
+	  	checks:
+	  	\begin{enumerate}
+	  	  \item The educational committee checks if the student meets the entry
+	  	  requirements for each submitted course.
+	  	  \item The educational committee checks that the student doesn't have
+	  	  several credit contracts or exam contracts for courses under supervision
+	  	  of the same faculty.
+	  	  \item The educational committee checks that if the student is a full time
+	  	  student, the total number of study points is at least 40 and doesn't
+	  	  exceed 75, and that if the student is a part-time student, the total
+	  	  number of study points is a number between 0 and 30 (inclusive).
+	  	  \item The educational committee checks that if the student is a first year
+	  	  student, he has chosen all the courses of the first phase.
+	  	\end{enumerate}
+	  	% 3
+	  	\item The educational committee concludes that all the tests are passed.
+	  	% 4
+	  	\item The educational committee sends an approval message to the student.
+	  	% 5
+	  	\item The student receives the approval message and is now fully accepted
+	  	for a study program.
+	\end{enumerate}
+	\item[Alternative flow] \
+		\par None
+	\item[Postcondition(s)] \ 
+	\begin{itemize}
+		\item The educational committee has approved the submitted courses
+		configuration of the student and the student has been notified of this fact.
+	\end{itemize}
+	\item[Exception(s)] \ 
+	\begin{description}
+		\item[3a] The educational committee concludes that 1 or more checks come out
+		negative.
+		\begin{enumerate}
+			\item The educational committee sends a disapproval message to the student.
+			\item The student receives the disapproval message and needs to change his
+			courses configuration if he wants to see his configuration approved.
+		\end{enumerate}
+	\end{description}
+\end{description}

@@ -1,0 +1,78 @@
+\section{Choose Courses}
+
+\begin{description}
+	\item[Name] \
+		\par Choose Courses
+	\item[Short description] \ 
+			\par The student chooses the courses for his student contract(s) to finalize
+			his study program. It's the next logical step after having registered for a
+			study contract.
+	\item[Trigger] \ 
+			\par The student decides to choose his courses for his registered study
+			contract(s) and takes the necessary steps.
+	\item[Primary actor(s)] \ 
+		\begin{itemize}
+		  \item Student: wants to select courses for his study contract(s).
+		\end{itemize}
+	\item[Secondary actor(s)] \ 
+		\begin{itemize}
+		  \item Didactical team: interested in students who will follow a course they
+		  are part of.
+		\end{itemize} 
+	\item[Preconditions] \ 
+	\begin{itemize}
+		\item The student is registered for one or more study contracts.
+		\item The student is logged in and is on his personal page.
+	\end{itemize}
+	\item[Normal flow] \ 
+	\begin{enumerate}
+	  	% 1
+	  	\item The student navigates to the choose courses section of his personal
+	  	page.
+	  	% 2
+	  	\item The system displays the choose courses page for the student.
+	  	% 3
+	  	\item The student selects the study contract for which he wants to choose
+	  	the courses.
+	  	% 4
+	  	\item The system shows the selected courses configuration that the student
+	  	saved on an earlier visit to the page.
+	  	% 5
+	  	\item The student searches for the courses he wants.
+	  	% 6
+	  	\item The student selects the courses he wants to follow.
+	  	% 7
+	  	\item The student deselects 0 or more courses that he doesn't want to
+	  	follow anymore in the configuration.
+	  	% 8
+	  	\item The student saves his chosen courses configuration
+	  	% 9
+	  	\item The system records this chosen courses configuration to show to the
+	  	student on his next visit on the page.
+	  	% 10
+	  	\item The system makes exam slots available to the student for the newly
+	  	selected courses and disables those of unselected ones.
+	  	% 11
+	  	\item If the student wants, he can choose the exam slots of the chosen
+	  	courses at this point, \textbf{extend} \emph{(UC6: Choose Exam Slots)}.
+	  	% 12
+	  	\item If the student decides that his global course configuration (i.e. the
+	  	total course configuration for each of his study contracts) is final, he
+	  	can submit this configuration directly, \textbf{extend} \emph{(UC5: Submit
+	  	Course Configuration)}.
+	\end{enumerate}
+	\item[Alternative flow] \
+		\begin{description}
+		\item[4a] The system doesn't display a previously saved courses
+		configuration since the student never visited the choose courses page for the
+		chosen study contract before.
+			\begin{enumerate}
+			  \item Resume the basic flow at step 5.
+			\end{enumerate}
+		\end{description}
+	\item[Postcondition(s)] \ 
+		\par The student has made a new chosen courses configuration of 1 of his study
+		contracts and this configuration is saved to the system.
+	\item[Exception(s)] \ 
+		\par None
+\end{description}
