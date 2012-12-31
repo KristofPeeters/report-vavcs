@@ -1,0 +1,56 @@
+\section{Approve exemption}
+
+\begin{description}
+	\item[Business Event Description] \ 
+		\par The exemption committee has received an application for an exemption
+		from a student and needs to check if the exemption can be granted.
+	\item[Business Use Case Name] \ 
+		\par Approve exemption
+	\item[Triggering business event] \ 
+		\par The exemption committee has received application for an exemption from a
+		student.
+	\item[Preconditions] \
+	\begin{itemize}
+		\item The exemption committee has received application for an exemption from a
+		student.
+	\end{itemize}
+	\item[Active stakeholders] \ 
+	\begin{itemize}
+		\item Exemption committee: checks that the exemption can be granted.
+	\end{itemize}
+	\item[Interested stakeholders] \ 
+		\begin{itemize}
+		\item Student: wants to know if his exemption is granted.
+		\item Educational Committee: can incorporate any tolerances in approving
+		study contracts.
+		\end{itemize}
+	\item[Normal business flow] \ 
+	\begin{enumerate}
+	  	% 1
+	  	\item The exemption committee glances through the form. 
+	  	% 2
+	  	\item The exemption committee checks that the specific course is indeed a
+	  	valid substitute.
+	  	% 3
+	  	\item The exemption committee checks that the student fulfills the entry
+	  	requirements for the course he wants an exemption for.
+	  	% 4
+	  	\item The exemption committee approves the exemption.
+	  	% 5
+	  	\item The exemption committee notifies the student of the approval.
+	  	% 6
+	  	\item The student is notified.
+	\end{enumerate}
+	\item[Alternative business flow] \ 
+		\par None
+	\item[Exception business flow] \ 
+	\begin{description}
+		\item[6a]  If the exemption committee rejects the exemption then,
+		\begin{enumerate}
+		  \item The exemption committee notifies the student of the rejection.
+		  \item The student is notified.
+		\end{enumerate}
+	\end{description}
+	\item[Outcome (postcondition)] \ 
+		\par The student knows about the acceptance of his or her exemption. 
+\end{description}

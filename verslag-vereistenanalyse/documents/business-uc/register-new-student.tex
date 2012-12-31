@@ -1,4 +1,87 @@
 \section{Register new student}
 \label{register-new-student}
 
-\par kutzooi
+\begin{description}
+	\item[Business Event Description] \
+	\par A student wants to register at the Wellington
+	University
+	\item[Business Use Case Name] \
+	\par Register new student
+	\item[Triggering business event] \
+	\par A student wants to register at the Wellington
+	University. He is completely new and hasn't studied at Wellington before. He
+	goes to the student administration building of Wellington University to make
+	his inscription.
+	\item[Preconditions] \ 
+	\begin{itemize}
+		\item Student hasn't yet studied at Wellington University.
+		\item Student has a high school degree.
+	\end{itemize}
+	\item[Active stakeholders] \ 
+	\begin{itemize}
+	  	\item Student: wants to study at Wellington University.
+		\item Registration employee: needs to complete the inscription of the student.
+	\end{itemize}
+	\item[Interested stakeholders] \ 
+		\begin{itemize}
+		  \item Board of the university: interested in new students.
+		\end{itemize}
+	\item[Normal business flow] \
+	\begin{enumerate}
+	  	% 1
+	  	\item The student goes to the student administration building of Wellington
+	  	University.
+	  	% 2
+	  	\item The student hands over the required information at the registration
+	  	desk: home address, residence address, phone numbers, birth date, passport
+	  	picture, register number, diplomas, if necessary evidence of matriculation.
+	  	% 3
+	  	\item The registration employee checks if the provided information is enough
+	  	and is correct.
+	  	% 4
+	  	\item The registration employee makes the right documents: invoice,
+	  	inscription attest.
+	  	% 5
+	  	\item The registration employee prints the student card with a unique
+	  	student number and the passport picture of the student on it.
+	  	% 6
+	  	\item The registration employee grabs a few other documents like some
+	  	folders and a free buss card.
+	  	% 7
+	  	\item The registration employee hands all these documents and student card
+	  	over to the student.
+	  	% 8
+	  	\item The student accepts all these documents and is now successfully
+	  	inscribed to Wellington University.
+	\end{enumerate}
+	\item[Alternative business flow] \ 
+	\begin{description}
+  		\item[3a] The registration employee notices that some documents are missing
+  		because the student has forgotten to bring them.
+  		\begin{enumerate}
+  			\item The registration employee makes the student aware that he/she
+  			can't be inscribed without these documents.
+  			\item The student leaves to retrieve the missing documents.
+  			\item The student returns at the student administration to restart his/her
+  			inscription.
+  			\item Go to normal flow 4.
+		\end{enumerate}
+	\end{description}
+	\item[Exception business flow] \
+	\begin{description}
+		\item[3a] after having checked the information provided by the student, the
+		registration employee notices that some documents are missing. This time not
+		because the student has forgotten them, but because the student just doesn't
+		have these documents (high school diploma, evidence of having passed a
+		matriculation, \ldots).
+		\begin{enumerate}
+		  \item The registration employee makes the student aware that he/she can't be
+		  inscribed without these documents.
+		  \item The student leaves and can't be inscribed until he obtains the missing
+		  documents.
+		\end{enumerate}
+	\end{description}
+	\item[Outcome (postcondition)] \
+	\par The student is now fully inscribed at Wellington University and has
+	received all the according documents, folders, buss card and student card.
+\end{description}

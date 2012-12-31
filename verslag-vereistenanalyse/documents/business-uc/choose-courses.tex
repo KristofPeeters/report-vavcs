@@ -1,0 +1,69 @@
+\section{Choose courses}
+
+\begin{description}
+	\item[Business Event Description] \ 
+		\par The student decides it's time to choose his courses that are part of his
+		contract(s). At the beginning of a study year the student chooses his courses
+		for the whole year, at the beginning of the second semester the student can
+		choose (and hence change) his courses for the second semester.
+	\item[Business Use Case Name] \ 
+		\par Choose courses
+	\item[Triggering business event] \ 
+		\par The student decides it's time to choose his courses that are part of his
+		contract(s) and takes the necessary steps.
+	\item[Preconditions] \
+	\begin{itemize}
+		\item The student is registered for at least 1 study contract.
+	\end{itemize}
+	\item[Active stakeholders] \ 
+	\begin{itemize}
+		\item Student: wants to choose his courses for the year or second semester.
+		\item Educational Committee: supervises that the courses selected by the
+		student are allowed to be taken by the student.
+	\end{itemize}
+	\item[Interested stakeholders] \ 
+	\begin{itemize}
+		\item Didactical team of the courses the student wants to follow.
+	\end{itemize}
+	\item[Normal business flow] \
+	\begin{enumerate}
+	  	% 1
+	  	\item The student takes the form for choosing his courses.
+	  	% 2
+	  	\item The student provides the necessary identifying information (found on
+	  	his student card). 
+	  	% 3
+	  	\item The student assigns for which study contract (for which he is
+	  	registered) he wants to choose his courses.
+	  	% 4
+	  	\item The student chooses the courses.
+	  	% 5
+	  	\item The student sends the form to the educational committee.
+	  	% 6
+	  	\item The educational committee receives and checks the courses
+	  	configuration and approves the configuration, include (UC5: Approve
+	  	courses submission).
+	\end{enumerate}
+	\item[Alternative business flow] \
+	\begin{description}
+		\item[4a]If the student has more than 1 study contract he has to
+		repeat the steps 1 - 4 of the basic flow for each study contract.
+			\begin{enumerate} 
+	  			\item The student sends all forms to the educational committee.
+			\end{enumerate}
+	\end{description}
+	\item[Exception business flow] \ 
+	\begin{description}
+		\item[6a] If the educational committee doesn't approve
+		the chosen courses (e.g. because of entry requirements) then,
+		\begin{enumerate}
+		 	\item The educational committee sends a disapproval message to the student.
+		 	\item The student receives the disapproval message and is not allowed to
+		 	follow the chosen courses.
+		 	\item Return to step 4 of the normal flow.
+		\end{enumerate}
+	\end{description}
+	\item[Outcome (postcondition)] \  
+		\par The student is allowed to follow the chosen courses of his registered
+		study contracts.
+\end{description}

@@ -1,0 +1,74 @@
+\section{Register for study contract}
+
+\begin{description}
+	\item[Business Event Description] \ 
+		\par The student wants to register for a diploma contract.
+	\item[Business Use Case Name] \ 
+		\par Register for study contract
+	\item[Triggering business event] \ 
+		\par The student wants to register for a diploma contract and decides to take the necessary steps.
+	\item[Preconditions] \ 
+	\begin{itemize}
+		\item The student has to be a registered student at Wellington University and
+		hence has a student card.
+	\end{itemize}
+	\item[Active stakeholders] \ 
+	\begin{itemize}
+		\item Student: wants to be registered for a diploma contract.
+	\end{itemize}
+	\item[Interested stakeholders] \ 
+		\begin{itemize}
+		\item University board: interested in new students, contract determines the
+		inscription fee.
+		\item Study contract committee: controls the approval or disapproval of the
+		contract the student wishes to obtain.
+		\end{itemize}
+	\item[Normal business flow] \ 
+	\begin{enumerate}
+	  	% 1
+	  	\item The student takes the form for starting a new study contract.
+	  	% 2
+	  	\item The student fills in the required identification information by using
+	  	his student card (with on it his unique student number).
+	  	% 3
+	  	\item The student chooses to register for a diploma contract.
+	  	% 4
+	  	\item The student chooses the bachelor or master contract of his choice.
+	  	% 5
+	  	\item The student sends the form to the study contract committee.
+	  	% 6
+	  	\item The study contract committee receives and checks the form,
+	  	\textbf{include} \emph{(UC3: Approve study contract)}.
+	\end{enumerate}
+	\item[Alternative business flow] \ 
+	\begin{description}
+		\item[3a] instead of a diploma contract the student chooses to register for a
+		credit contract. 
+		\begin{enumerate}
+		  \item Resume at step 5 of the basic flow.
+		\end{enumerate}
+		\item[3b] instead of a diploma contract the student chooses to register for an
+		exam contract. 
+		\begin{enumerate}
+		  \item Resume at step 5 of the basic flow.
+		\end{enumerate}
+	\end{description}
+	\item[Exception business flow] \ 
+	\begin{description}
+		\item[6a] If the check of the study contract committee comes out negative
+		then (e.g. he wants to follow a master study while he still has to follow a
+		full bachelor year),
+		\begin{enumerate}
+		  \item The student can't follow the chosen diploma contract.
+		  \item The study contract committee sends a disapproval message to the
+		  student.
+		  \item The student receives the disapproval message, and is not allowed to
+		  follow the chosen diploma contract.
+		  \item The student can try to register for another diploma contract by
+		  returning to step 1 in the normal flow.
+		\end{enumerate}
+	\end{description}
+	\item[Outcome (postcondition)] \
+		\par The student now follows the chosen study contract. The faculty who
+		supervises that contract is aware that a new student signed up.
+\end{description}

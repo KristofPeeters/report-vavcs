@@ -1,0 +1,78 @@
+\section{Approve study contract}
+
+\begin{description}
+	\item[Business Event Description] \ 
+		\par After a student registered for a study contract, this contract needs an
+		approval to see if it doesn't violate any admission requirements.
+	\item[Business Use Case Name] \ 
+		\par Approve study contract
+	\item[Triggering business event] \ 
+		\par Whenever a student sends a study contract, this will trigger the
+		approval procedure.
+	\item[Preconditions] \
+	\begin{itemize}
+		\item The study contract committee has received the registration form.
+	\end{itemize}
+	\item[Active stakeholders] \ 
+	\begin{itemize}
+		\item stakeholder 1
+	\end{itemize}
+	\item[Interested stakeholders] \ 
+		\begin{itemize}
+		\item stakeholder 1
+		\end{itemize}
+	\item[Normal business flow] \ 
+	\begin{enumerate}
+	  	% 1
+	  	\item The study contract committee glances through the form. 
+	  	% 2
+	  	\item The study contract committee verifies that the registration is a valid
+	  	one.
+	  	% 3
+	  	\item The study contract committee approves the registration.
+	  	% 4
+	  	\item The study contract committee sends an approval message to the
+	  	student.
+	  	% 5
+	  	\item The student receives the approval message and is now allowed to follow
+	  	the diploma contract.
+	\end{enumerate}
+	\item[Alternative business flow] \
+		\par None
+	\item[Exception business flow] \ 
+	\begin{description}
+		\item[2a] If the student's submitted program is a credit or exam contract and
+		the student has already registered for another contract of that same type
+		within the same faculty, then the registration is rejected.
+		\begin{enumerate}
+		  	\item The study contract committee sends a disapproval message to the
+		  	student.
+		  	\item The student receives the disapproval message, and is not allowed to
+		  	follow the chosen diploma contract.
+		  	\item The student can try to register for another contract.
+		\end{enumerate}
+		\item[2b] If the student's submitted program is about a phase X where the
+		student did not yet complete phase X-1, then the registration is rejected.
+		\begin{enumerate}
+		  	\item The study contract committee sends a disapproval message to the
+		  	student.
+		  	\item The student receives the disapproval message, and is not allowed to
+		  	follow the chosen diploma contract.
+		  	\item The student can try to register for another contract.
+		\end{enumerate}
+		\item[2c] If the student's submitted program is about a master where the
+		student did not yet complete the preceding bachelor, the registration is
+		rejected.
+		\begin{enumerate}
+		  	\item The study contract committee sends a disapproval message to the
+		  	student.
+		  	\item The student receives the disapproval message, and is not allowed to
+		  	follow the chosen diploma contract.
+		  	\item The student can try to register for another contract.
+		\end{enumerate}
+	\end{description}
+	\item[Outcome (postcondition)] \ 
+		\par The student's study contract is approved and he can continue to choose
+		courses for this contract.
+\end{description}
+

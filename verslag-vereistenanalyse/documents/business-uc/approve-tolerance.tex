@@ -1,0 +1,57 @@
+\section{Approve tolerance}
+
+\begin{description}
+	\item[Business Event Description] \ 
+		\par 
+	\item[Business Use Case Name] \ 
+		\par Approve tolerance
+	\item[Triggering business event] \ 
+		\par The toleration committee has received a request for a toleration of a
+		certain course from a certain student. The committee, however, has to check that the
+		request can be granted. 
+	\item[Preconditions] \
+	\begin{itemize}
+		\item The toleration committee has received the tolerance form.
+	\end{itemize}
+	\item[Active stakeholders] \ 
+	\begin{itemize}
+		\item Toleration committee: checks to see if the tolerance can be granted
+	\end{itemize}
+	\item[Interested stakeholders] \ 
+		\begin{itemize}
+		\item Student: wants to know if his request is accepted
+		\item Educational committee: can incorporate any tolerances in approving study
+		contracts.
+		\end{itemize}
+	\item[Normal business flow] \ 
+	\begin{enumerate}
+	  	% 1
+	  	\item The toleration committee glances through the form. 
+	  	% 2
+	  	\item The toleration committee checks that the student has enough tolerance
+	  	budget for the toleration.
+	  	% 3
+	  	\item The toleration committee tolerates the shortcoming.
+	  	% 6
+	  	\item The tolerance committee sends an approval message to the student and
+	  	notifies the educational committee of this tolerance.
+	  	% 7
+	  	\item The student receives the approval message and is now granted a
+	  	tolerance for the chosen course.
+	\end{enumerate}
+	\item[Alternative business flow] \ 
+		\par None
+	\item[Exception business flow] \ 
+	\begin{description}
+		\item[2a] if the tolerance committee comes out negative (e.g. because of a
+		lack of tolerance budget) then,
+		\begin{enumerate}
+		  \item The tolerance committee sends a disapproval message to the student.
+		  \item The student receives the disapproval message and is not granted the
+		  chosen tolerance.
+		\end{enumerate}
+	\end{description}
+	\item[Outcome (postcondition)] \ 
+		\par Both the student and the educational committee know about the acceptance
+		of the tolerance request.
+\end{description}
