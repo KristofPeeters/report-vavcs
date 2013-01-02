@@ -1,0 +1,52 @@
+\chapter{Object Constraint Language}
+
+\npar In this section several constraints and business rules are expressed in
+OCL. 
+
+\section{Constraints}
+
+\begin{enumerate}
+	\item \emph{Entry requirements for course must be free of cycles.} \ 
+	\npar \textbf{Context} Course \textbf{inv}:
+	\par \hspace*{5 mm} not self.requirements.courses->includes(self)
+	
+	\item \emph{Students cannot take courses for which they do not satisfy stated
+	entry requirements.} \
+	\npar \textbf{Context} RegisteredStudent \textbf{inv}:
+	\par \hspace*{5 mm} self.courseConfiguration.courses.requirements->
+	\par \hspace*{10 mm} \textcolor{Blue}{forAll}(EntryRequirement: req |
+	\par \hspace*{15 mm} \textcolor{Blue}{if} req.oclIsKindOf(Strong)
+	\textcolor{Blue}{then} \par \hspace*{20 mm}
+	self.passedCourses->includesAll(req.courses) 
+	\par \hspace*{15 mm} \textcolor{Blue}{else}
+	\par \hspace*{20 mm} \textcolor{Blue}{if} req.oclIsKindOf(Weak)
+	\textcolor{Blue}{then}
+	\par \hspace*{25 mm}
+	self.followedCourses->includesAll(req.courses) 
+	\par \hspace*{20 mm} \textcolor{Blue}{else}
+	\par \hspace*{25 mm} \textcolor{Blue}{if} req.oclIsKindOf(Parallel)
+	\textcolor{Blue}{then}
+	\par \hspace*{30 mm}
+	(self.courseConfiguration.courses->union(self.followedCourses))->
+	\par \hspace*{32 mm}includesAll(req.courses)
+	\par \hspace*{25 mm} \textcolor{Blue}{else}
+	\par \hspace*{30 mm} false
+	\par \hspace*{5 mm} )
+
+	\item \emph{Students cannot take courses of some phase if he/she has not taken
+	all courses of all preceding phases.}
+		
+	\item \emph{The total amount of study points that a student can take in an
+	academic year is in the range from 40 to 75 study points for a full time
+	student. For a part-time student this range is from 0 to 30.}
+	\npar \textbf{Context} RegisteredStudent \textbf{inv}:
+	\par \hspace*{5 mm} \textcolor{Blue}{if} self.oclIsKindOf(FullTimeStudent)
+	\textcolor{Blue}{then}
+	\par \hspace*{10 mm} self.courseConfiguration.totalStudyPoints $>= 40$ or
+	self.courseConfiguration.totalStudyPoints $<= 75$
+	\par \hspace*{5 mm} \textcolor{Blue}{else}
+	\par \hspace*{10 mm} \textcolor{Blue}{if} self.oclIsKindOf(PartTimeStudent)
+	\textcolor{Blue}{then}
+	\par \hspace*{10 mm} self.courseConfiguration.totalStudyPoints $>= 0$ or
+	self.courseConfiguration.totalStudyPoints $<= 30$
+\end{enumerate}
