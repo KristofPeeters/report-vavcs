@@ -1,0 +1,42 @@
+\section{Choose course}
+
+\par \emph{As a registered student, I can choose a course for a study contract.}
+
+\subsection{Path}
+
+\begin{enumerate}
+  \item The system gives the registered student an overview of the study
+  contracts he has.
+  \item The student selects a study contract for which he wants to choose a
+  course.
+  \item The system gives the registered student an overview of the courses he
+  can choose according to the selected contract and any previously selected courses in case there are some.
+  \item The registered student selects a course of the overview and thereby
+  chooses to follow it.
+  \item The registered student deselects 0 or more courses of the overview and
+  thereby chooses to not follow it.
+  \item The system registers the student's choice(s) to display them on the next
+  visit.
+  \item The system confirms the new choices via sending an email to the
+  registered student. 
+\end{enumerate}
+
+\subsection{Confirmation}
+
+\begin{description}
+\item[Test 1:] Verify that the registered student can only see his study
+contracts.
+\item[Test 2:] Verify that the registered student can only see the courses he
+can follow according to his study contract(s).
+\item[Test 3:] Verify that the registered student can choose a single course.
+\item[Test 4:] Verify that the registered student can choose multiple courses at
+a time.
+\item[Test 5:] Verify that the registered student can choose to deselect a
+course.
+\item[Test 6:] Verify that the registered student can choose to deselect
+multiple courses.
+\item[Test 7:] Verify that the student fulfills the entry requirements for all
+courses which are chosen at the moment.
+\item[Test 8:] Verify that the registered student receives a confirmation email
+within 15 minutes after selection.
+\end{description}
