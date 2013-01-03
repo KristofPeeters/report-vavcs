@@ -38,7 +38,30 @@ OCL.
 	\item \emph{Students cannot take courses of some phase if he/she has not taken
 	all courses of all preceding phases.}
 	
-	\npar TODO
+	\npar \textbf{Context} RegisteredStudent \textbf{inv}:
+	\par \hspace*{5 mm} \textcolor{Blue}{if}
+	self.contract->oclIsKindOf(SingleContract) \textcolor{Blue}{then}
+	\par \hspace*{10 mm} \textcolor{Blue}{if}
+	self.contract->oclIsKindOf(CreditContract) \textcolor{Blue}{then} 
+	\par \hspace*{15 mm} true
+	\par \hspace*{10 mm} \textcolor{Blue}{else}
+	\par \hspace*{15 mm} \textcolor{Blue}{if}
+	self.contract->oclIsKindOf(ExamContract) \textcolor{Blue}{then} 
+	\par \hspace*{20 mm} true
+	\par \hspace*{15 mm} \textcolor{Blue}{else}
+	\par \hspace*{20 mm} \textcolor{Blue}{if}
+	(self.followedPhases-self.passedPhases)->exists(contract.name
+	= self.contract.name)
+	\par \hspace*{20 mm} \textcolor{Blue}{then}
+	 \par \hspace*{25 mm} self.courseConfiguration.courses->includesAll
+	 \par \hspace*{25 mm} $[$
+	 \par \hspace*{27 mm} (self.followedPhases-self.passedPhases)->select(
+	 \par \hspace*{27 mm} contract.name=self.contract.name and 
+	 \par \hspace*{27 mm} phaseNb <= contract.phaseNb)->collect(
+	 \par \hspace*{27 mm}  mandatoryCourses)-self.passedCourses
+	 \par \hspace*{25 mm} $]$
+	 \par \hspace*{25 mm} and
+	  
 	
 \end{enumerate}
 
@@ -52,12 +75,12 @@ OCL.
 	\par \hspace*{5 mm} \textcolor{Blue}{if} self.oclIsKindOf(FullTimeStudent)
 	\textcolor{Blue}{then}
 	\par \hspace*{10 mm} self.courseConfiguration.totalStudyPoints $>= 40$ or
-	self.courseConfiguration.totalStudyPoints $<= 75$
+	\par \hspace*{10 mm} self.courseConfiguration.totalStudyPoints $<= 75$
 	\par \hspace*{5 mm} \textcolor{Blue}{else}
 	\par \hspace*{10 mm} \textcolor{Blue}{if} self.oclIsKindOf(PartTimeStudent)
 	\textcolor{Blue}{then}
-	\par \hspace*{10 mm} self.courseConfiguration.totalStudyPoints $>= 0$ or
-	self.courseConfiguration.totalStudyPoints $<= 30$
+	\par \hspace*{15 mm} self.courseConfiguration.totalStudyPoints $>= 0$ or
+	\par \hspace*{15 mm} self.courseConfiguration.totalStudyPoints $<= 30$
 	
 	\item \emph{A student can only apply for exam slots of
 	courses for which he/she is registered. The same yields for the assigning of
@@ -89,10 +112,18 @@ OCL.
 	\par \hspace*{5 mm} self.StudyContract->includes(self.adaptableConfiguration)
 	
 	\item \emph{A grade of a course where the student passed for (PassedResult) is
-	always between 0 and 20. The student passes if he obtains a score of 10 or
-	more. Or if he tolerates that course.}
+	always between 8 and 20. The student passes if he obtains a score of 10 or
+	more or if he tolerates that course.}
 	\npar \textbf{Context} PassedResult \textbf{inv}:
-	\par TODO
+	\par \hspace*{5 mm} self.grade >= 8 and self.grade <= 20
+	\par \hspace*{5 mm} and (
+	\par \hspace*{10 mm} \textcolor{Blue}{if} self.grade >= 10
+	\textcolor{Blue}{then} self.tolerated = false 
+	\par \hspace*{10 mm} \textcolor{Blue}{if} self.grade < 10 \textcolor{Blue}{then}
+	self.tolerated = false 
+	\par \hspace*{10 mm} \textcolor{Blue}{if} self.tolerated = true \textcolor{Blue}{then} self.grade >= 10
+	\par \hspace*{10 mm} \textcolor{Blue}{if} self.tolerated = false \textcolor{Blue}{then} self.grade < 10
+	\par \hspace*{5 mm} )
 	
 	
 	\item \emph{The student can tolerate a course with a score of 8 or 9.}
@@ -108,6 +139,15 @@ OCL.
 	that his toleration was approved for.}
 	\npar \textbf{Context} RegisteredStudent \textbf{inv}:
 	\par \hspace*{5 mm} self.tolerated = self.toleranceAssignment
+	
+	\item \emph{The student can only tolerate courses he currently has in his/her
+	course configuration.} 
+	\npar \textbf{Context} RegisteredStudent \textbf{inv}:
+	\par \hspace*{5 mm} self.tolerationApplication =
+	self.adapts.courses.tolerationApplication
+	\par \hspace*{10 mm} and
+	\par \hspace*{5 mm} self.tolerationApproval =
+	self.adapts.courses.tolerationApproval
 	
 \end{enumerate}
 
