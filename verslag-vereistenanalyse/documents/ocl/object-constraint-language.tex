@@ -58,10 +58,48 @@ OCL.
 	 \par \hspace*{27 mm} (self.followedPhases-self.passedPhases)->select(
 	 \par \hspace*{27 mm} contract.name=self.contract.name and 
 	 \par \hspace*{27 mm} phaseNb <= contract.phaseNb)->collect(
-	 \par \hspace*{27 mm}  mandatoryCourses)-self.passedCourses
+	 \par \hspace*{27 mm}  mandatoryCourses) - self.passedCourses
 	 \par \hspace*{25 mm} $]$
 	 \par \hspace*{25 mm} and
-	  
+	 \par \hspace*{25 mm} self.courseConfiguration.courses->includesAll
+	 \par \hspace*{25 mm} $[$
+	 \par \hspace*{27 mm} (self.followedPhases-self.passedPhases)->select(
+	 \par \hspace*{27 mm} contract.name=self.contract.name and 
+	 \par \hspace*{27 mm} phaseNb <= contract.phaseNb)->collect(
+	 \par \hspace*{27 mm}  eligibleCourses) intersect self.followedCourses -
+	 self.passedCourses \par \hspace*{25 mm} $]$
+	 \par \hspace*{20 mm} \textcolor{Blue}{else}
+	 \par \hspace*{25 mm} true
+	 
+	 \par \hspace*{5 mm} \textcolor{Blue}{else}
+	 \par \hspace*{10 mm} self.contract.contracts->forAll(SimpleContract c |
+	 \par \hspace*{15 mm} \textcolor{Blue}{if} c.oclIsKindOf(ExamContract) or
+	 c.oclIsKindOf(CreditContract) \textcolor{Blue}{then}
+	 \par \hspace*{20 mm} true
+	 \par \hspace*{15 mm} \textcolor{Blue}{else}
+	 \par \hspace*{20 mm} \textcolor{Blue}{if}
+	 (self.followedPhases-self.passedPhases)->exists(contract.name = c.name)
+	\par \hspace*{20 mm} \textcolor{Blue}{then}
+	 \par \hspace*{25 mm} self.courseConfiguration.courses->includesAll
+	 \par \hspace*{25 mm} $[$
+	 \par \hspace*{27 mm} (self.followedPhases-self.passedPhases)->select(
+	 \par \hspace*{27 mm} contract.name=c.name and 
+	 \par \hspace*{27 mm} phaseNb <= contract.phaseNb)->collect(
+	 \par \hspace*{27 mm}  mandatoryCourses) - self.passedCourses
+	 \par \hspace*{25 mm} $]$
+	 \par \hspace*{25 mm} and
+	 \par \hspace*{25 mm} self.courseConfiguration.courses->includesAll
+	 \par \hspace*{25 mm} $[$
+	 \par \hspace*{27 mm} (self.followedPhases-self.passedPhases)->select(
+	 \par \hspace*{27 mm} contract.name=c.name and 
+	 \par \hspace*{27 mm} phaseNb <= contract.phaseNb)->collect(
+	 \par \hspace*{27 mm}  eligibleCourses) intersect self.followedCourses -
+	 self.passedCourses 
+	 \par \hspace*{25 mm} $]$
+	 \par \hspace*{20 mm} \textcolor{Blue}{else}
+	 \par \hspace*{25 mm} true
+	 
+	 \par \hspace*{10 mm} )
 	
 \end{enumerate}
 
@@ -148,6 +186,38 @@ OCL.
 	\par \hspace*{10 mm} and
 	\par \hspace*{5 mm} self.tolerationApproval =
 	self.adapts.courses.tolerationApproval
+	
+	\item \emph{If a student registers for a diploma contract for the first time,
+	he has to start in phase 1. If a student registers to continue a diploma
+	contract, he can't register for phases that are already fully completed.}
+	\npar \textbf{Context} RegisteredStudent \textbf{inv}:
+	\par \hspace*{5 mm} \textcolor{Blue}{if}
+	self.contract->oclIsKindOf(SingleContract) \textcolor{Blue}{then}
+	\par \hspace*{10 mm} \textcolor{Blue}{if}
+	self.contract->oclIsKindOf(CreditContract) \textcolor{Blue}{then} 
+	\par \hspace*{15 mm} true
+	\par \hspace*{10 mm} \textcolor{Blue}{else}
+	\par \hspace*{15 mm} \textcolor{Blue}{if}
+	self.contract->oclIsKindOf(ExamContract) \textcolor{Blue}{then} 
+	\par \hspace*{20 mm} true
+	\par \hspace*{15 mm} \textcolor{Blue}{else}
+	\par \hspace*{20 mm} \textcolor{Blue}{if} not (self.followedPhases -
+	self.passedPhases)->exists(
+	\par \hspace*{20 mm} contract.name = self.contract.name)
+	\textcolor{Blue}{then}
+	\par \hspace*{25 mm} self.contract.currentPhase = 1 
+	
+	\par \hspace*{5 mm} \textcolor{Blue}{else}
+	\par \hspace*{10 mm} self.contract.contracts->forAll(SingleContract c |
+	\par \hspace*{15 mm} \textcolor{Blue}{if} c.contract->oclIsKindOf(ExamContract)
+	or c.contract->oclIsKindOf(CreditContract)
+	\par \hspace*{20 mm} true
+	\par \hspace*{15 mm} \textcolor{Blue}{else} 
+	\par \hspace*{20 mm}\textcolor{Blue}{if} not (self.followedPhases -
+	self.passedPhases)->exists(contract.name = c.name)
+	\par \hspace*{20 mm} \textcolor{Blue}{then}
+	\par \hspace*{25 mm} c.currentPhase = 1 
+	
 	
 \end{enumerate}
 
