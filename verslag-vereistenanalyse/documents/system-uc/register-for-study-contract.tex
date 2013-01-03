@@ -29,15 +29,15 @@
 	  	\item The student indicates that he wants to register for a diploma
 	  	contract.
 	  	% 4
-	  	\item The student selects the right program. This includes the actual
-	  	program as well as the phase.
+	  	\item The student selects the right contract. This includes the actual
+	  	contract as well as the phase.
 	  	% 5
-	  	\item The student verifies that he selected the correct program and submits.
+	  	\item The student verifies that he selected the correct contract and submits.
 	  	% 6
 	  	\item The system verifies that the student can indeed follow the specified
-	  	study program.
+	  	study contract.
 	  	% 7
-	  	\item The student is now registered for the program.
+	  	\item The student is now registered for the contract.
 	\end{enumerate}
 	\item[Alternative flow] \
 	\begin{description}
@@ -48,32 +48,32 @@
 	\end{description}
 	\item[Postcondition(s)] \ 
 	\begin{itemize}
-		\item The student is now registered for the specified study program. The
+		\item The student is now registered for the specified study contract. The
 		Wellington university is aware that a new student is subscribed to one of
-		their study programs.
+		their study contracts.
 	\end{itemize}
 	\item[Exception(s)] \ 
 	\begin{description}
-		\item[6a] if the student's submitted program is a credit or exam contract and
+		\item[6a] if the student's submitted contract is a credit or exam contract and
 		the student has already registered for another contract of that same type
 		within the same faculty, then
 		\begin{enumerate}
 		  \item The system rejects the registration
-		  \item The system presents the option to register for another study program
+		  \item The system presents the option to register for another study contract
 		  (and hence return to step 3 in the normal flow) or end the registration.
 		\end{enumerate}
-		\item[6b] if the student's submitted program is about a phase X where the
+		\item[6b] if the student's submitted contract is about a phase X where the
 		student did not yet complete phase X-1, then
 		\begin{enumerate}
 		 	\item The system rejects the registration
-		 	\item The system presents the option to register for another study program
+		 	\item The system presents the option to register for another study contract
 		 	(and hence return to step 3 in the normal flow) or end the registration.
 		\end{enumerate}
-		\item[6c] if the student's submitted program is about a master where the
+		\item[6c] if the student's submitted contract is about a master where the
 		student did not yet complete the preceding bachelor, then.
 		\begin{enumerate}
 		 	\item The system rejects the registration
-		 	\item The system presents the option to register for another study program
+		 	\item The system presents the option to register for another study contract
 		 	(and hence return to step 3 in the normal flow) or end the registration.
 		\end{enumerate}
 	\end{description}
