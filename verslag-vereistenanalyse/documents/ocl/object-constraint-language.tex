@@ -5,8 +5,10 @@ OCL.
 
 \section{Constraints}
 
+\subsection{Given constraints}
+
 \begin{enumerate}
-	\item \emph{Entry requirements for course must be free of cycles.} \ 
+  \item \emph{Entry requirements for course must be free of cycles.} \ 
 	\npar \textbf{Context} Course \textbf{inv}:
 	\par \hspace*{5 mm} not self.requirements.courses->includes(self)
 	
@@ -35,7 +37,14 @@ OCL.
 
 	\item \emph{Students cannot take courses of some phase if he/she has not taken
 	all courses of all preceding phases.}
-		
+	
+	\npar TODO
+	
+\end{enumerate}
+
+\subsection{Own constraints}
+
+\begin{enumerate}
 	\item \emph{The total amount of study points that a student can take in an
 	academic year is in the range from 40 to 75 study points for a full time
 	student. For a part-time student this range is from 0 to 30.}
@@ -49,4 +58,75 @@ OCL.
 	\textcolor{Blue}{then}
 	\par \hspace*{10 mm} self.courseConfiguration.totalStudyPoints $>= 0$ or
 	self.courseConfiguration.totalStudyPoints $<= 30$
+	
+	\item \emph{A student can only apply for exam slots of
+	courses for which he/she is registered. The same yields for the assigning of
+	exam slots.}
+	\npar \textbf{Context} RegisteredStudent \textbf{inv}:
+	\par \hspace*{5 mm} self.examSlotApplication =
+	self.adaptableConfiguration.courses.examSlotApplication
+	\par \hspace*{5 mm} and
+	\par \hspace*{5 mm} self.examSlotAssignment =
+	self.adaptableConfiguration.courses.examSlotAssignment
+	
+	\npar \textbf{Context} RegisteredStudent \textbf{inv}:
+	\par \hspace*{5 mm} self.courseConfiguration.courses->includesAll(self.examSlotApplication)
+	\par \hspace*{5 mm} and
+	\par \hspace*{5 mm} self.courseConfiguration.courses->includesAll(self.examSlotAssignment)
+	
+	\item  \emph{A registered student is a student who has a registration and vice
+	versa for students who don't have one.}
+	\npar \textbf{Context} Student \textbf{inv}:
+	\par \hspace*{5 mm} \textcolor{Blue}{if}
+	self.oclIsKindOf(RegisteredStudent) \textcolor{Blue}{then}
+	\par \hspace*{10 mm} self.registration->size() = 1
+	\par \hspace*{5 mm} \textcolor{Blue}{else}
+	\par \hspace*{10 mm} self.registration->size() = 0
+	
+	\item \emph{Students can only select a course configuration which is allowed
+	for the study contract they signed.}
+	\npar \textbf{Context} RegisteredStudent \textbf{inv}:
+	\par \hspace*{5 mm} self.StudyContract->includes(self.adaptableConfiguration)
+	
+	\item \emph{A grade of a course where the student passed for (PassedResult) is
+	always between 0 and 20. The student passes if he obtains a score of 10 or
+	more. Or if he tolerates that course.}
+	\npar \textbf{Context} PassedResult \textbf{inv}:
+	\par TODO
+	
+	
+	\item \emph{The student can tolerate a course with a score of 8 or 9.}
+	\npar \textbf{Context} ToleratedResult \textbf{inv}:
+	\par \hspace*{5 mm} self.grade = 8 or self.grade = 9
+	
+	\item \emph{The score of a course that the student followed lies between 0 and
+	20.}
+	\npar \textbf{Context} FollowedResult \textbf{inv}:
+	\par \hspace*{5 mm} self.grade >= 0 and self.grade <= 20
+	
+	\item \emph{The courses that the student tolerated are the same as the courses
+	that his toleration was approved for.}
+	\npar \textbf{Context} RegisteredStudent \textbf{inv}:
+	\par \hspace*{5 mm} self.tolerated = self.toleranceAssignment
+	
 \end{enumerate}
+
+\subsection{Use case constraints}
+
+\npar In this section one pre- and one postcondition of the (system) use case
+``Register new student'' are modelled in \textsc{ocl}.
+
+\subsubsection{Precondition}
+
+\par \hspace*{5 mm} \textbf{Uses}
+\par \hspace*{10 mm} The student willing to register.
+\par \hspace*{13 mm} student: Student
+
+\npar \hspace*{5 mm} \emph{The student is not yet registered at Wellington
+University.} \par \hspace*{10 mm} student.registration->size() = 0
+
+\subsubsection{Postcondition}
+
+\par \hspace*{5 mm} \emph{The student is now registered at Wellington
+University.}
+\par \hspace*{10 mm} student.registration->size() = 1
