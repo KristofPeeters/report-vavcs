@@ -10,7 +10,7 @@
   \item The student selects a study contract for which he wants to choose a
   course.
   \item The system gives the registered student an overview of the courses he
-  can choose.
+  can choose (and possibly selected on a previous visit).
   \item The registered student selects a course of the overview and thereby
   chooses to follow it.
   \item The registered student deselects 0 or more courses of the overview and
@@ -24,7 +24,7 @@
 \subsection{Confirmation}
 
 \begin{description}
-\item[Test 1:] Verify that the registered student can only see his study
+\item[Test 1:] Verify that the registered student can only see his own study
 contracts.
 \item[Test 2:] Verify that the registered student can only see the courses he
 can follow according to his study contract(s).
@@ -37,4 +37,6 @@ course.
 multiple courses.
 \item[Test 7:] Verify that the registered student receives a confirmation email
 within 15 minutes after selection.
+\item[Test 8:] Verify that the registered student sees courses from previous
+visits if applicable.
 \end{description}

@@ -9,8 +9,8 @@
 		\par The educational committee receives an application for chosen courses.
 	\item[Preconditions] \
 	\begin{itemize}
-		\item The educational committee has received the prefered selection of courses
-		from the student.
+		\item The educational committee has received the preferred selection of
+		courses from the student.
 	\end{itemize}
 	\item[Active stakeholders] \ 
 	\begin{itemize}
@@ -42,6 +42,7 @@
 	  	student, the total number of taken study points ranges from 40 to 75. 
 	  	% 6
 	  	\item The educational committee concludes all the checks come out positive.
+	  	\item The student is notified of the approval.
 	\end{enumerate}
 	\item[Alternative business flow] \
 		\begin{description}
@@ -58,25 +59,26 @@
 		\item[1c] The educational committee sees that the study contract of the
 		student is a combination of various study contracts.
 			\begin{enumerate}
-			  \item The educational committee checks that the student doesn't try to
-			  follow several credit contracts or exam contracts for courses under the
-			  supervision of the same faculty.
 			  \item The educational committee checks that the student didn't chose
 			  an unfinished course that is included in different contracts at the same
 			  time.
 			  \item Resume the basic flow at step 3.
 			\end{enumerate}
-		\item[4c] In case the student is a part-time student, the committee checkts
+		\item[4c] In case the student is a part-time student, the committee checks
 		that the total number of study points ranges from 0 to 30.
 		\end{description}
-		
 	\item[Exception business flow] \ 
 	\begin{description}
-		\item[5a] if one or more of the checks comes out negative then,
+		\item[6a] If the educational committee doesn't approve
+		the chosen courses (e.g. because of entry requirements) then,
 		\begin{enumerate}
-		  \item The student is notified of the rejection of his selection.
+		 	\item The educational committee sends a disapproval message to the student.
+		 	\item The student receives the disapproval message and is not allowed to
+		 	follow the chosen courses.
+		 	\item Return to step 4 of the normal flow.
 		\end{enumerate}
 	\end{description}
 	\item[Outcome (postcondition)] \ 
-		\par The selection of chosen courses is approved.
+		\par The selection of chosen courses is approved and the student is aware of
+		this approval.
 \end{description}

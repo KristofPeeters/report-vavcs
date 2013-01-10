@@ -1,5 +1,5 @@
 \section{Approve courses submission}
-%TODO IS GEEN SYSTEM MAAR EEN BUSINESS USE CASE
+
 \begin{description}
 	\item[Name] \
 		\par Approve courses submission
@@ -37,9 +37,6 @@
 	  	\begin{enumerate}
 	  	  \item The educational committee checks if the student meets the entry
 	  	  requirements for each submitted course.
-	  	  \item The educational committee checks that the student doesn't have
-	  	  several credit contracts or exam contracts for courses under supervision
-	  	  of the same faculty.
 	  	  \item The educational committee checks that if the student is a full time
 	  	  student, the total number of study points is at least 40 and doesn't
 	  	  exceed 75, and that if the student is a part-time student, the total
@@ -50,7 +47,10 @@
 	  	% 3
 	  	\item The educational committee concludes that all the tests are passed.
 	  	% 4
-	  	\item The educational committee sends an approval message to the student.
+	  	\item The educational committee indicates that the configuration is
+	  	approved.
+	  	\item The system registers this and sends an approval message to the
+	  	student.
 	  	% 5
 	  	\item The student receives the approval message and is now fully accepted
 	  	for a study program.
@@ -60,7 +60,8 @@
 	\item[Postcondition(s)] \ 
 	\begin{itemize}
 		\item The educational committee has approved the submitted courses
-		configuration of the student and the student has been notified of this fact.
+		configuration and this information is registered in the system.
+		\item The student has been notified of this fact.
 	\end{itemize}
 	\item[Exception(s)] \ 
 	\begin{description}

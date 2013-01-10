@@ -22,9 +22,9 @@
 	\item[Normal flow] \ 
 	\begin{enumerate}
 	  	% 1
-	  	\item The student navigates to the registration page.
+	  	\item The student navigates to the study-contract-registration page.
 	  	% 2
-	  	\item The system displays the registration page.
+	  	\item The system displays the study-contract-registration page.
 	  	% 3
 	  	\item The student indicates that he wants to register for a diploma
 	  	contract.
@@ -54,25 +54,18 @@
 	\end{itemize}
 	\item[Exception(s)] \ 
 	\begin{description}
-		\item[6a] if the student's submitted contract is a credit or exam contract and
+		\item[6a] If the student's submitted contract is a credit or exam contract and
 		the student has already registered for another contract of that same type
 		within the same faculty, then
 		\begin{enumerate}
-		  \item The system rejects the registration
+		  \item The system rejects the registration.
 		  \item The system presents the option to register for another study contract
 		  (and hence return to step 3 in the normal flow) or end the registration.
 		\end{enumerate}
-		\item[6b] if the student's submitted contract is about a phase X where the
-		student did not yet complete phase X-1, then
+		\item[6b] If the student's submitted contract is about a master where the
+		student did not yet complete the preceding bachelor, then
 		\begin{enumerate}
-		 	\item The system rejects the registration
-		 	\item The system presents the option to register for another study contract
-		 	(and hence return to step 3 in the normal flow) or end the registration.
-		\end{enumerate}
-		\item[6c] if the student's submitted contract is about a master where the
-		student did not yet complete the preceding bachelor, then.
-		\begin{enumerate}
-		 	\item The system rejects the registration
+		 	\item The system rejects the registration.
 		 	\item The system presents the option to register for another study contract
 		 	(and hence return to step 3 in the normal flow) or end the registration.
 		\end{enumerate}

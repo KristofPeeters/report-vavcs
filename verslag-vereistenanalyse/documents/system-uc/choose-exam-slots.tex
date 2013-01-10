@@ -7,8 +7,8 @@
 			\par The student wants to register for an exam slot of a course he intends to
 			follow.
 	\item[Trigger] \ 
-			\par The student wants to register for an exam slot or he is invoked to do so
-			to complete his courses selection.
+			\par The student decides to register for an exam slot in order to complete
+			one or more study programs.
 	\item[Primary actor(s)] \ 
 		\begin{itemize}
 		  \item Student: wants to book an exam slot for a course.
@@ -47,12 +47,17 @@
 			  \item The system allows new bookings for the previously reserved slot.
 			  \item The system registers the student's choice and blocks
 			  that slot for other reservations.
+			  \item The system notifies the lectors teaching the course where the exam
+			  slot belongs that there is a new booking.
 			\end{enumerate}
 		\end{description}
-	\item[Postcondition(s)] \ 
-		\par The exam slot is booked for the student (no other students can book this
-		slot anymore). The student now has that exam slot as exam moment for the
-		corresponding course. Any previously booked slot is now reopened.
+	\item[Postcondition(s)] \
+	\begin{description} 
+		 \item The exam slot is booked for the student (no other students can book
+		 this slot anymore). 
+		 \item The student now has that exam slot as exam moment for the
+		corresponding course. 
+		\item Any previously booked slot is now reopened.
 	\item[Exception(s)] \ 
 		\par None
 \end{description}
